@@ -10,13 +10,31 @@ public class Service {
         Categories categories = new Categories();
 
         for (int i = 0; i < 5; i++) {
-            Category category = recommendCategory();
-            categories.add(category);
-            recommendMenu(category, coaches);
+            Category newCategory = recommendCategory();
+
+            int count = checkCategoryCount(categories, newCategory);
+            while (count > 2) {
+                newCategory = recommendCategory();
+                count = checkCategoryCount(categories, newCategory);
+            }
+
+            categories.add(newCategory);
+            recommendMenu(newCategory, coaches);
         }
 
         return categories;
     }
+
+    public int checkCategoryCount(Categories categories, Category newCategory){
+        int count = 0;
+        for (Category category : categories) {
+            if (category.equals(newCategory)) {
+                count++;
+            }
+        }
+        return count;
+    }
+
 
     public void recommendMenu(Category category, Coaches coaches) {
         Menus menusByCategory = Menu.getMenusByCategory(category);
@@ -25,8 +43,7 @@ public class Service {
         }
     }
 
-    public void inputMenu(Menus menusByCategory, Coach coach){
-
+    public void inputMenu(Menus menusByCategory, Coach coach) {
         Menu menu;
         do {
             String menuName = Randoms.shuffle(menusByCategory.getMenuNames()).get(0);
