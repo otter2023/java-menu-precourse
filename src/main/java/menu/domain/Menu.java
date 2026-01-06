@@ -83,9 +83,6 @@ public enum Menu {
         }
         return menus;
     }
-    public Category getCategory() {
-        return category;
-    }
 
     public String getKoreanName() {
         return koreanName;

@@ -20,8 +20,4 @@ public class Coaches implements Iterable<Coach> {
             throw new IllegalArgumentException("[ERROR] 코치는 최소 2명 이상 5명 이하입니다.");
         }
     }
-
-    public List<Coach> getCoaches() {
-        return coaches;
-    }
 }

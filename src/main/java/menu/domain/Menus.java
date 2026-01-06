@@ -7,10 +7,6 @@ import java.util.List;
 public class Menus implements Iterable<Menu> {
     private List<Menu> menus = new ArrayList<>();
 
-    public List<Menu> getMenus() {
-        return menus;
-    }
-
     public boolean contains(Menu menu){
         return menus.contains(menu);
     }
@@ -35,5 +31,4 @@ public class Menus implements Iterable<Menu> {
         }
         return names;
     }
-
 }

@@ -3,7 +3,6 @@ package menu.service;
 import camp.nextstep.edu.missionutils.Randoms;
 import menu.domain.*;
 
-
 public class Service {
 
     public Categories recommend(Coaches coaches) {

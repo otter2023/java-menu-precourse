@@ -28,10 +28,6 @@ public class Coach {
         return name;
     }
 
-    public Menus getExcludedMenus() {
-        return excludedMenus;
-    }
-
     public void addExcludedMenus(Menu menu) {
         this.excludedMenus.add(menu);
     }
