@@ -37,12 +37,12 @@ public class View {
     public void readCoachesExcludedMenus(Coaches coaches){
         System.out.println();
         for (Coach coach : coaches) {
-            System.out.println(coach.name + "(이)가 못 먹는 메뉴를 입력해 주세요.");
+            System.out.println(coach.getName() + "(이)가 못 먹는 메뉴를 입력해 주세요.");
             String menusFullName = Console.readLine();
             List<String> menusName = Parser.splitComma(menusFullName);
 
             for (String menuName : menusName) {
-                coach.excludedMenus.add(Menu.from(menuName));
+                coach.getExcludedMenus().add(Menu.from(menuName));
             }
             coach.validateExcludedMenus();
         }

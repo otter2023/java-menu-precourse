@@ -51,8 +51,8 @@ public enum Menu {
     PIZZA("피자", Category.WESTERN),
     PANINI("파니니", Category.WESTERN);
 
-    public final Category category;
-    public final String koreanName;
+    private final Category category;
+    private final String koreanName;
 
     Menu(String koreanName, Category category) {
         this.category = category;
@@ -68,4 +68,22 @@ public enum Menu {
 
         throw new IllegalArgumentException("[ERROR] 존재하지 않는 메뉴입니다. 다시 입력해 주세요.");
     }
+
+    public static Menus getMenusByCategory(Category category) {
+        Menus menus = new Menus();
+        for (Menu menu : Menu.values()) {
+            if (menu.category == category) {
+                menus.add(menu);
+            }
+        }
+        return menus;
+    }
+    public Category getCategory() {
+        return category;
+    }
+
+    public String getKoreanName() {
+        return koreanName;
+    }
+
 }

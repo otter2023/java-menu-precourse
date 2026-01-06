@@ -19,6 +19,6 @@ public class Controller {
         Coaches coaches = view.readCoach();
         view.readCoachesExcludedMenus(coaches);
 
-        service.recommend();
+        service.recommend(coaches);
     }
 }

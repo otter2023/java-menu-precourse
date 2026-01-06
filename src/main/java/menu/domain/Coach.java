@@ -1,14 +1,15 @@
 package menu.domain;
 
-import java.util.List;
-
 public class Coach {
-    public String name;
-    public List<Menu> excludedMenus;
+    private final String name;
+
+    private final Menus excludedMenus;
+    private Menus menus;
 
     public Coach(String name) {
         this.name = name;
         excludedMenus = null;
+        menus = null;
     }
 
     public void validateName() {
@@ -22,4 +23,17 @@ public class Coach {
             throw new IllegalArgumentException("[ERROR] 먹지 못하는 메뉴의 개수는 2개 이하입니다.");
         }
     }
+
+    public String getName() {
+        return name;
+    }
+
+    public Menus getExcludedMenus() {
+        return excludedMenus;
+    }
+
+    public Menus getMenus() {
+        return menus;
+    }
+
 }
