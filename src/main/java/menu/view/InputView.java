@@ -9,7 +9,7 @@ import menu.utils.Parser;
 import java.util.ArrayList;
 import java.util.List;
 
-public class View {
+public class InputView {
 
     public void readStart(){
         System.out.println("점심 메뉴 추천을 시작합니다.");
@@ -42,9 +42,10 @@ public class View {
             List<String> menusName = Parser.splitComma(menusFullName);
 
             for (String menuName : menusName) {
-                coach.getExcludedMenus().add(Menu.from(menuName));
+                coach.addExcludedMenus(Menu.from(menuName));
             }
             coach.validateExcludedMenus();
+            System.out.println();
         }
     }
 }

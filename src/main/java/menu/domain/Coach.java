@@ -3,13 +3,13 @@ package menu.domain;
 public class Coach {
     private final String name;
 
-    private final Menus excludedMenus;
+    private Menus excludedMenus;
     private Menus menus;
 
     public Coach(String name) {
         this.name = name;
-        excludedMenus = null;
-        menus = null;
+        excludedMenus = new Menus();
+        menus = new Menus();
     }
 
     public void validateName() {
@@ -30,6 +30,10 @@ public class Coach {
 
     public Menus getExcludedMenus() {
         return excludedMenus;
+    }
+
+    public void addExcludedMenus(Menu menu) {
+        this.excludedMenus.add(menu);
     }
 
     public Menus getMenus() {

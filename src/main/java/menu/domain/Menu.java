@@ -1,5 +1,7 @@
 package menu.domain;
 
+import java.util.Objects;
+
 public enum Menu {
     GYUDON("규동", Category.JAPANESE),
     UDON("우동", Category.JAPANESE),
@@ -64,6 +66,9 @@ public enum Menu {
             if (menu.koreanName.equals((inputName))){
                 return menu;
             }
+            if (Objects.equals(inputName, "") || Objects.equals(inputName, " ")){
+                return null;
+            }
         }
 
         throw new IllegalArgumentException("[ERROR] 존재하지 않는 메뉴입니다. 다시 입력해 주세요.");
@@ -85,5 +90,11 @@ public enum Menu {
     public String getKoreanName() {
         return koreanName;
     }
+
+    @Override
+    public String toString() {
+        return "| " + koreanName + " ";
+    }
+
 
 }

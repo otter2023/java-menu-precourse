@@ -1,10 +1,11 @@
 package menu.domain;
 
+import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
 public class Menus implements Iterable<Menu> {
-    private List<Menu> menus;
+    private List<Menu> menus = new ArrayList<>();
 
     public List<Menu> getMenus() {
         return menus;
@@ -25,6 +26,14 @@ public class Menus implements Iterable<Menu> {
 
     public int size() {
         return menus.size();
+    }
+
+    public List<String> getMenuNames() {
+        List<String> names = new ArrayList<>();
+        for (Menu menu : menus) {
+            names.add(menu.getKoreanName());
+        }
+        return names;
     }
 
 }
